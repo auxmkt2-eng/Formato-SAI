@@ -1,4 +1,3 @@
-
 const USERS = [
   { username: "admin",    password: "innvida2026", role: "admin", sede: null,       displayName: "Administración general" },
   { username: "morelia",  password: "morelia2026", role: "sede",  sede: "Morelia",  displayName: "Sede Morelia" },
@@ -63,6 +62,15 @@ function applyRoleToUI() {
     // Los perfiles de sede no necesitan elegir sede: ya está fija.
     campoSede.classList.toggle("hidden", currentUser.role !== "admin");
   }
+ // NUEVO: Importar solo para sede, Exportar solo para admin
+  const btnImportar = document.getElementById("btnImportarExcel");
+  const btnExportar = document.getElementById("btnExportarExcel");
+  if (btnImportar) btnImportar.classList.toggle("hidden", currentUser.role === "admin");
+  if (btnExportar) btnExportar.classList.toggle("hidden", currentUser.role !== "admin");
+
+  // NUEVO: "Nuevo registro" solo visible para perfiles de sede, oculto para admin
+  const btnNuevoRegistro = document.getElementById("btnNuevoRegistro");
+  if (btnNuevoRegistro) btnNuevoRegistro.classList.toggle("hidden", currentUser.role === "admin");
 }
 
 // ----- 3) Eventos de login / logout -------------------------------
