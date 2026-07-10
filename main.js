@@ -1,9 +1,4 @@
-// ============================================================
-// 1) ESTADO — los datos reales se cargan desde Supabase
-//    (ver cargarRegistros(), llamada al iniciar el dashboard
-//    y también desde Excelimport.js / nuevoRegistro.js tras
-//    guardar un registro nuevo)
-// ============================================================
+
 const SEDES = ["", "Morelia", "Toluca", "Narvarte", "Tijuana"];
 function calcularTotal(subtotal, iva) {
   const sub = Number(subtotal) || 0;
